@@ -1,6 +1,5 @@
 import time
 from turtle import Screen, Turtle
-
 move_distance = 20
 UP = 90
 DOWN = 270
@@ -23,6 +22,7 @@ class Snake:
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
+        self.segments[0].shape("snake")
         self.segments[0].forward(move_distance)
         # self.segments[0].left(90)
 
