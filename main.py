@@ -31,7 +31,21 @@ while is_game_on:
     if snake.segments[0].distance(food) < 15:
         food.refresh()
         scoreboard.scoring()
-        print(scoreboard.score)
+        snake.extend_segment()
+
+    if snake.segments[0].xcor() > 285 or snake.segments[0].xcor() < -285 or snake.segments[0].ycor() > 285 or snake.segments[0].ycor() < -285:
+        is_game_on = False
+        scoreboard.game_over()
+    elif snake.segments[-1].xcor() > 285 or snake.segments[-1].xcor() < -285 or snake.segments[-1].ycor() > 285 or snake.segments[-1].ycor() < -285:
+        is_game_on = False
+        scoreboard.game_over()
+
+    for segment in snake.segments:
+        if segment == snake.segments[0]:
+            pass
+        elif snake.segments[0].distance(segment) < 10:
+            is_game_on = False
+            scoreboard.game_over()
 
 
 

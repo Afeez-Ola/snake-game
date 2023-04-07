@@ -3,6 +3,8 @@ from food import Food
 
 ALIGNMENT = "center"
 FONT = ("Arial", 18, "normal")
+
+
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
@@ -15,6 +17,10 @@ class Scoreboard(Turtle):
 
     def update_scoreboard(self):
         self.write(f"Score: {self.score}", move=False, align=ALIGNMENT, font=FONT)
+
+    def game_over(self):
+        self.goto(0.0, 0.0)
+        self.write("Game Over!", move=False, align=ALIGNMENT, font=FONT)
 
     def scoring(self):
         self.score += 1
