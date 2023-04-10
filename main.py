@@ -33,12 +33,15 @@ while is_game_on:
         scoreboard.scoring()
         snake.extend_segment()
 
-    if snake.segments[0].xcor() > 285 or snake.segments[0].xcor() < -285 or snake.segments[0].ycor() > 285 or snake.segments[0].ycor() < -285:
+    if snake.segments[0].xcor() > 285 or snake.segments[0].xcor() < -285 or snake.segments[0].ycor() > 285 or \
+            snake.segments[0].ycor() < -285:
         is_game_on = False
         scoreboard.game_over()
-    elif snake.segments[-1].xcor() > 285 or snake.segments[-1].xcor() < -285 or snake.segments[-1].ycor() > 285 or snake.segments[-1].ycor() < -285:
+    elif snake.segments[-1].xcor() > 285 or snake.segments[-1].xcor() < -285 or snake.segments[-1].ycor() > 285 or \
+            snake.segments[-1].ycor() < -285:
         is_game_on = False
         scoreboard.game_over()
+    pos = 0
 
     for segment in snake.segments:
         if segment == snake.segments[0]:
@@ -46,7 +49,5 @@ while is_game_on:
         elif snake.segments[0].distance(segment) < 10:
             is_game_on = False
             scoreboard.game_over()
-
-
 
 screen.exitonclick()
