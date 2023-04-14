@@ -1,19 +1,26 @@
 import time
 from turtle import Screen, Turtle
 from scoreboard import Scoreboard
+
 move_distance = 20
 UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+
+
 class Snake:
     def __init__(self):
 
         self.segments = []
         self.starting_positions = [(0.0, 0.0), (-20.0, 0.0), (-40.0, 0.0)]
 
+        self.create_snake()
+
+    def create_snake(self):
         for position in self.starting_positions:
             self.add_segment(position)
+
     def add_segment(self, position):
         segment = Turtle("square")
         segment.penup()
@@ -23,14 +30,20 @@ class Snake:
 
     def extend_segment(self):
         self.add_segment(self.segments[-1].position())
+
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(320, 320)
+        self.segments.clear()
+        self.create_snake()
+
     def move(self):
-        for seg_num in range(len(self.segments) - 1 , 0, -1):
+        for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
         self.segments[0].shape("snake")
         self.segments[0].forward(move_distance)
-        # self.segments[0].left(90)
 
     def up(self):
         if self.segments[0].heading() != DOWN:

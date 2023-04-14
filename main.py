@@ -35,19 +35,22 @@ while is_game_on:
 
     if snake.segments[0].xcor() > 285 or snake.segments[0].xcor() < -285 or snake.segments[0].ycor() > 285 or \
             snake.segments[0].ycor() < -285:
-        is_game_on = False
-        scoreboard.game_over()
+        time.sleep(0.2)
+        scoreboard.reset()
+        snake.reset()
     elif snake.segments[-1].xcor() > 290 or snake.segments[-1].xcor() < -290 or snake.segments[-1].ycor() > 285 or \
             snake.segments[-1].ycor() < -285:
-        is_game_on = False
-        scoreboard.game_over()
+        time.sleep(0.2)
+        scoreboard.reset()
+        snake.reset()
     pos = 0
 
     for segment in snake.segments:
         if segment == snake.segments[0]:
             pass
         elif snake.segments[0].distance(segment) < 10:
-            is_game_on = False
-            scoreboard.game_over()
+            time.sleep(0.2)
+            scoreboard.reset()
+            snake.reset()
 
 screen.exitonclick()
