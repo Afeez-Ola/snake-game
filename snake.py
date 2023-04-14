@@ -42,7 +42,6 @@ class Snake:
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
-        self.segments[0].shape("snake")
         self.segments[0].forward(move_distance)
 
     def up(self):
@@ -60,7 +59,3 @@ class Snake:
     def right(self):
         if self.segments[0].heading() != LEFT:
             self.segments[0].setheading(RIGHT)
-
-# Snake()
-# screen = Screen()
-# screen.exitonclick()
