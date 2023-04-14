@@ -37,7 +37,7 @@ while is_game_on:
             snake.segments[0].ycor() < -285:
         is_game_on = False
         scoreboard.game_over()
-    elif snake.segments[-1].xcor() > 285 or snake.segments[-1].xcor() < -285 or snake.segments[-1].ycor() > 285 or \
+    elif snake.segments[-1].xcor() > 290 or snake.segments[-1].xcor() < -290 or snake.segments[-1].ycor() > 285 or \
             snake.segments[-1].ycor() < -285:
         is_game_on = False
         scoreboard.game_over()
