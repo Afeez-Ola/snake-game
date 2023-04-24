@@ -1,6 +1,4 @@
-import time
-from turtle import Screen, Turtle
-from scoreboard import Scoreboard
+from turtle import  Turtle
 
 move_distance = 20
 UP = 90
